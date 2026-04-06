@@ -3,7 +3,7 @@
 #include <SDL.h>
 
 constexpr int SCREEN_WIDTH = 640;
-constexpr int SCREEN_HEIGHT = 320;
+constexpr int SCREEN_HEIGHT = 420;
 
 int main()
 {
@@ -29,6 +29,9 @@ int main()
     while (SDL_PollEvent(&event))
     {
       if (event.type == SDL_QUIT)
+        running = false;
+
+      if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE)
         running = false;
     }
 
